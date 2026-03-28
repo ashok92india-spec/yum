@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if smartmontools is installed
+if ! command -v smartctl &> /dev/null
+then
+    echo "smartctl could not be found. Installing smartmontools..."
+    sudo apt update
+    sudo apt install -y smartmontools
+fi
+
+# List all drives
+echo "Available drives:"
+lsblk -d -o NAME,MODEL,ROTA | grep -v "ROTA 1"
+
+# Ask user to specify drive (e.g., /dev/sda)
+read -p "Enter the drive you want to check (e.g., /dev/sda): " DRIVE
+
+# Run SMART check
+echo "Running SMART health check on $DRIVE..."
+sudo smartctl -H "$DRIVE"
+
+# Show detailed SMART info
+echo "SMART detailed info for $DRIVE:"
+sudo smartctl -a "$DRIVE"
+
+
+aSHOK TEST 11111111111111
