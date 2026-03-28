@@ -20,5 +20,5 @@ echo "Running SMART health check on $DRIVE..."
 sudo smartctl -H "$DRIVE"
 
 # Show detailed SMART info
-echo "SMART detailed info for $DRIVE:"
+echo "SMART detailed info for $DRIVE:"rttrt tnnnrtnrt trrrhw ry re
 sudo smartctl -a "$DRIVE"
