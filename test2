@@ -1,4 +1,4 @@
-#!/bin/bash
+ffojfofo#!/bin/bash
 
 # Check if smartmontools is installed
 if ! command -v smartctl &> /dev/null
